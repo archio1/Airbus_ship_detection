@@ -56,7 +56,7 @@ def visualize_results(test_image, predicted_mask):
 if __name__ == "__main__":
     # Paths
     parser = argparse.ArgumentParser()
-    parser.add_argument("image_path", type=str, help="Path to the image for prediction")
+    parser.add_argument("--input", type=str, help="Path to the image for prediction")
     args = parser.parse_args()
     model_path = Path('seg_model.h5')
 
