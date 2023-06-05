@@ -5,27 +5,7 @@ from keras import models
 from keras.utils import custom_object_scope
 import argparse
 from pathlib import Path
-import keras.backend as K
-
-# from model_unet.py import dice_coef
-# can not import dice_coef from model_unet.py
-
-
-def dice_coef(y_true, y_pred, smooth: float = 1.0):
-    """
-    Compute the Dice coefficient.
-
-    Args:
-        y_true (K.Tensor): True target tensor.
-        y_pred (K.Tensor): Predicted target tensor.
-        smooth (float): Smoothing factor.
-
-    Returns:
-        K.Tensor: Dice coefficient.
-    """
-    intersection = K.sum(y_true * y_pred, axis=[1, 2, 3])
-    union = K.sum(y_true, axis=[1, 2, 3]) + K.sum(y_pred, axis=[1, 2, 3])
-    return K.mean((2.0 * intersection + smooth) / (union + smooth), axis=0)
+from model_unet import dice_coef
 
 
 def load_model(model_path: Path) -> models.Model:

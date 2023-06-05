@@ -236,7 +236,7 @@ def get_model(
     seg_model.compile(
         optimizer=Adam(1e-4, decay=1e-6), loss=dice_p_bce, metrics=[dice_coef]
     )
-    weight_path = "{}_weights.best.hdf5".format("seg_model")
+    weight_path = f"model/{seg_model}_weights.best.hdf5"
 
     checkpoint = ModelCheckpoint(
         weight_path,
