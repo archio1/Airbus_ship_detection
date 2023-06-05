@@ -7,8 +7,8 @@ import argparse
 from pathlib import Path
 import keras.backend as K
 
-# from unet.py import dice_coef
-# can not import dice_coef from unet.py
+# from model_unet.py import dice_coef
+# can not import dice_coef from model_unet.py
 
 
 def dice_coef(y_true, y_pred, smooth: float = 1.0):
