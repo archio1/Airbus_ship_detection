@@ -18,28 +18,37 @@ To tackle this challenge, the following approach has been used:
 
 4. **Python**: The entire solution is implemented using the Python programming language, taking advantage of its rich ecosystem of libraries and tools for data manipulation, image processing, and deep learning.
 
-## Files
+## Project Structure
 
 The repository contains the following files:
 
-- `unet.py`: Python script for training the semantic segmentation model.
-- `inference.py`: Python script for evaluating the trained model on test data.
+- `exploratory_data_analysis.ipynb`: Jupyter Notebook for exploratory data analysis.
+- `inference.py`: Python script for performing inference and generating predicted masks.
+- `unet.py`: Python script containing the implementation of the U-Net architecture for the neural network.
+- `seg_model.h5`: Trained model file in the HDF5 format.
+- `seg_model_weights_best.h5`: Trained model weights file in the HDF5 format.
+- `requirements.txt`: Text file listing the required dependencies for running the project.
+- `airbus-ship-detection/`: Directory containing the Airbus Ship Detection dataset.
 
-## Usage
+## Running the Project
+To run the project, follow the instructions below:
 
-To train and evaluate the model, follow these steps:
+1. First of all create an environment
+2. To explore the dataset and perform data analysis, open `exploratory_data_analysis.ipynb` in Jupyter Notebook.
 
-1. Install the required dependencies listed in `requirements.txt`.
+3. For running inference on new images, execute the following command: 
 
-2. Prepare the dataset by downloading the Airbus Ship Detection Challenge data from Kaggle and organizing it into appropriate directories.
+```python
+python inference.py --input 'full path to file 
+```
 
-3. Adjust the configuration parameters in the scripts, such as file paths, hyperparameters, and training settings, to match your setup and preferences.
+4. To train and evaluate the Unet model, execute the command: 
+```python
+python unet.py
+```
+Make sure you have the Airbus Ship Detection dataset available.
 
-4. Run `unet.py` to train the model. The script will load the data, preprocess it, train the model using the U-Net architecture, and save the trained model weights.
-
-5. Run `inference.py` to evaluate the trained model on test data. The script will load the test data, preprocess it, load the trained model, perform inference, and compute the Dice scores for evaluation.
-
-Feel free to explore and modify the code as per your requirements and experiment with different settings to improve the model performance.
+5. Please note that Google Colab I couldn't use for training the model in this project. Because I ran into a problem of limited memory for using the datasetю
 
 ## Conclusion
 
